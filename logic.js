@@ -29,7 +29,7 @@ const countryList = {
     DKK: "DK",
     EUR: "EU",
     EGP: "EG",
-    GPB: "GB",
+    GBP: "GB",
     HKD: "HK",
     IDR: "ID",
     ILS: "IL",
@@ -62,6 +62,8 @@ const countryList = {
     ZAR: "ZA"
 }
 
+copybtn.classList.add("hidden");
+
 window.addEventListener("load", () => {
     setTimeout(() => {
         document.querySelector(".amount input").focus();
@@ -88,6 +90,8 @@ select.forEach(element => {
     });
 });
 
+let copiedAmount = "";
+
 async function convertCurrency() {
     let amount = document.querySelector(".amount input");
 
@@ -97,6 +101,9 @@ async function convertCurrency() {
 
     let URL = `${api}/${fromCurr.value}/${toCurr.value}`;
 
+    finalamt.classList.add("loading");
+    finalamt.innerHTML = `<span class="loading-text">Converting</span>`;
+
     let response = await fetch(URL);
     let data = await response.json();
 
@@ -105,14 +112,20 @@ async function convertCurrency() {
     let finalAmount = exgrate * amount.value;
     finalAmount = Number(finalAmount.toFixed(4));
 
-    finalamt.innerText = finalAmount;
+    copiedAmount = finalAmount.toString();
+
+    finalamt.innerText = finalAmount.toLocaleString(undefined, {
+        style: "currency",
+        currency: toCurr.value,
+    });
 }
 
 const form = document.querySelector("#converterForm");
 
-form.addEventListener("submit", (e) => {
-    e.preventDefault();
+form.addEventListener("submit", (evt) => {
+    evt.preventDefault();
     convertCurrency();
+    copybtn.classList.remove("hidden");
 });
 
 exchangebtn.addEventListener("click", () => {
@@ -126,8 +139,8 @@ exchangebtn.addEventListener("click", () => {
     convertCurrency();
 })
 
-copybtn.addEventListener("click", ()=>{
-    navigator.clipboard.writeText(finalamt.innerText);
+copybtn.addEventListener("click", () => {
+    navigator.clipboard.writeText(copiedAmount);
     showToast("Copied Succesfully!");
 })
 
