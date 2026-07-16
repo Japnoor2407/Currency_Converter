@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Currency Converter</title>
+    <link rel="stylesheet" href="final.css">
+</head>
+
+<body>
+    <h1>Currency Converter</h1>
+    <div class="page">
+        <div class="container">
+            <h1>Convert your Currency</h1>
+            <form id="converterForm">
+                <div class="amount">
+                    <p>Enter Amount</p>
+                    <input placeholder="100" type="number">
+                </div>
+                <div class="dropdown">
+                    <div class="from">
+                        <p>FROM</p>
+                        <div class="class-container">
+                            <img src="https://flagsapi.com/US/flat/64.png" alt="Flag">
+                            <select name="country" id="from" class="choose">
+                                <option value="USD">USD</option>
+                                <option value="INR">INR</option>
+                                <option value="AUD">AUD</option>
+                                <option value="AED">AED</option>
+                                <option value="ARS">ARS</option>
+                                <option value="BDT">BDT</option>
+                                <option value="BHD">BHD</option>
+                                <option value="BRL">BRL</option>
+                                <option value="CAD">CAD</option>
+                                <option value="CAD">CAD</option>
+                                <option value="CHF">CHF</option>
+                                <option value="CLP">CLP</option>
+                                <option value="CNY">CNY</option>
+                                <option value="COP">COP</option>
+                                <option value="CUP">CUP</option>
+                                <option value="CZK">CZK</option>
+                                <option value="DKK">DKK</option>
+                                <option value="EUR">EUR</option>
+                                <option value="EGP">EGP</option>
+                                <option value="GBP">GPB</option>
+                                <option value="HKD">HKD</option>
+                                <option value="IDR">IDR</option>
+                                <option value="ILS">ILS</option>
+                                <option value="IQD">IQD</option>
+                                <option value="IRR">IRR</option>
+                                <option value="JMD">JMD</option>
+                                <option value="JPY">JPY</option>
+                                <option value="KES">KES</option>
+                                <option value="KRW">KRW</option>
+                                <option value="KWD">KWD</option>
+                                <option value="LKR">LKR</option>
+                                <option value="MAD">MAD</option>
+                                <option value="MVR">MVR</option>
+                                <option value="MXN">MXN</option>
+                                <option value="NOK">NOK</option>
+                                <option value="NPR">NPR</option>
+                                <option value="NZD">NZD</option>
+                                <option value="OMR">OMR</option>
+                                <option value="PHP">PHP</option>
+                                <option value="PLN">PLN</option>
+                                <option value="PKR">PKR</option>
+                                <option value="QAR">QAR</option>
+                                <option value="RUB">RUB</option>
+                                <option value="SAR">SAR</option>
+                                <option value="SEK">SEK</option>
+                                <option value="SGD">SGD</option>
+                                <option value="TRY">TRY</option>
+                                <option value="VND">VND</option>
+                                <option value="YER">YER</option>
+                                <option value="ZAR">ZAR</option>
+                            </select>
+                        </div>
+                    </div>
+                    <!-- <div class="exchange">⇄</div> -->
+                    <button type="button" class="exchange">⇄</button>
+                    <div class="to">
+                        <p>TO</p>
+                        <div class="class-container">
+                            <img src="https://flagsapi.com/IN/flat/64.png" alt="Flag">
+                            <select name="country" id="to" class="choose">
+                                <option value="INR">INR</option>
+                                <option value="USD">USD</option>
+                                <option value="AUD">AUD</option>
+                                <option value="AED">AED</option>
+                                <option value="ARS">ARS</option>
+                                <option value="BDT">BDT</option>
+                                <option value="BHD">BHD</option>
+                                <option value="BRL">BRL</option>
+                                <option value="CAD">CAD</option>
+                                <option value="CAD">CAD</option>
+                                <option value="CHF">CHF</option>
+                                <option value="CLP">CLP</option>
+                                <option value="CNY">CNY</option>
+                                <option value="COP">COP</option>
+                                <option value="CUP">CUP</option>
+                                <option value="CZK">CZK</option>
+                                <option value="DKK">DKK</option>
+                                <option value="EUR">EUR</option>
+                                <option value="EGP">EGP</option>
+                                <option value="GBP">GPB</option>
+                                <option value="HKD">HKD</option>
+                                <option value="IDR">IDR</option>
+                                <option value="ILS">ILS</option>
+                                <option value="IQD">IQD</option>
+                                <option value="IRR">IRR</option>
+                                <option value="JMD">JMD</option>
+                                <option value="JPY">JPY</option>
+                                <option value="KES">KES</option>
+                                <option value="KRW">KRW</option>
+                                <option value="KWD">KWD</option>
+                                <option value="LKR">LKR</option>
+                                <option value="MAD">MAD</option>
+                                <option value="MVR">MVR</option>
+                                <option value="MXN">MXN</option>
+                                <option value="NOK">NOK</option>
+                                <option value="NPR">NPR</option>
+                                <option value="NZD">NZD</option>
+                                <option value="OMR">OMR</option>
+                                <option value="PHP">PHP</option>
+                                <option value="PLN">PLN</option>
+                                <option value="PKR">PKR</option>
+                                <option value="QAR">QAR</option>
+                                <option value="RUB">RUB</option>
+                                <option value="SAR">SAR</option>
+                                <option value="SEK">SEK</option>
+                                <option value="SGD">SGD</option>
+                                <option value="TRY">TRY</option>
+                                <option value="VND">VND</option>
+                                <option value="YER">YER</option>
+                                <option value="ZAR">ZAR</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </form>
+            <button type="submit" form="converterForm" id="btn">Convert</button>
+            <div class="convertedAmount">CONVERTED AMOUNT</div>
+            <div class="finalmsg"></div>
+        </div>
+    </div>     
+
+    <script src="logic.js"></script>
+</body>
+
+</html>
