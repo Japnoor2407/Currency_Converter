@@ -121,4 +121,5 @@ exchangebtn.addEventListener("click", () => {
 
     updateFlag(fromCurr);
     updateFlag(toCurr);
+    convertCurrency();
 })
