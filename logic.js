@@ -7,6 +7,8 @@ const fromCurr = document.querySelector(".from select");
 const toCurr = document.querySelector(".to select");
 const finalamt = document.querySelector(".finalmsg")
 const exchangebtn = document.querySelector(".exchange");
+const copybtn = document.querySelector("#copy");
+const toast = document.querySelector("#toast");
 
 const countryList = {
     USD: "US",
@@ -123,3 +125,18 @@ exchangebtn.addEventListener("click", () => {
     updateFlag(toCurr);
     convertCurrency();
 })
+
+copybtn.addEventListener("click", ()=>{
+    navigator.clipboard.writeText(finalamt.innerText);
+    showToast("Copied Succesfully!");
+})
+
+function showToast(message) {
+    toast.innerText = message;
+
+    toast.classList.add("show");
+
+    setTimeout(() => {
+        toast.classList.remove("show");
+    }, 1200);
+}

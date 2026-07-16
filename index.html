@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Currency Converter</title>
     <link rel="stylesheet" href="final.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 </head>
 
 <body>
@@ -141,9 +142,15 @@
             </form>
             <button type="submit" form="converterForm" id="btn">Convert</button>
             <div class="convertedAmount">CONVERTED AMOUNT</div>
-            <div class="finalmsg"></div>
+            <div class="result-container">
+                <div class="finalmsg"></div>
+                <button type="button" id="copy">
+                    <i class="fa-solid fa-copy"></i>
+                </button>
+            </div>
+            <div id="toast">Copied Successfully!</div>
         </div>
-    </div>     
+    </div>
 
     <script src="logic.js"></script>
 </body>

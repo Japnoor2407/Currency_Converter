@@ -15,7 +15,7 @@
 
 * {
     box-sizing: border-box;
-}      
+}
 
 body {
     margin: 0;
@@ -32,12 +32,17 @@ body {
 }
 
 @keyframes driftPattern {
-    from { background-position: center, 0 0; }
-    to   { background-position: center, 320px 320px; }
+    from {
+        background-position: center, 0 0;
+    }
+
+    to {
+        background-position: center, 320px 320px;
+    }
 }
 
-body > h1 {
-    margin: 2.2rem 0 0;
+body>h1 {
+    margin: 1.5rem 0 0;
     text-align: center;
     font-family: 'IBM Plex Sans', sans-serif;
     font-size: 2.5rem;
@@ -48,7 +53,7 @@ body > h1 {
     animation: settleDown 0.7s ease-out 0.05s forwards;
 }
 
-body > h1::after {
+body>h1::after {
     content: "";
     display: block;
     width: 600px;
@@ -90,12 +95,14 @@ body > h1::after {
     border: 3px solid var(--brass);
     opacity: 0.8;
 }
+
 .container::before {
     top: 10px;
     left: 10px;
     border-right: none;
     border-bottom: none;
 }
+
 .container::after {
     bottom: 10px;
     right: 10px;
@@ -253,7 +260,7 @@ form {
 }
 
 /* exchange button */
-.exchange{
+.exchange {
     font-size: 2.5rem;
     margin-top: 1.7rem;
     color: var(--bill-green);
@@ -328,7 +335,7 @@ form {
 
 .finalmsg {
     position: relative;
-    padding: 0.3rem 1rem ;
+    padding: 0.3rem 1rem;
     min-height: 3.5rem;
     text-align: center;
     justify-content: center;
@@ -346,8 +353,7 @@ form {
         0 12px 24px -16px var(--shadow);
     opacity: 0;
     animation:
-        settleDown 0.6s cubic-bezier(0.2, 0.7, 0.2, 1) 0.75s forwards,
-        stamp 0.5s cubic-bezier(0.2, 0.7, 0.3, 1.4) 1.3s forwards;
+        settleDown 0.6s cubic-bezier(0.2, 0.7, 0.2, 1) 0.75s forwards
 }
 
 /* decorative brass seal, echoes the button/corner accents */
@@ -356,6 +362,81 @@ form {
     position: absolute;
     pointer-events: none;
 }
+
+.result-container {
+    position: relative;
+}
+
+.result-container .finalmsg {
+    padding-right: 3.4rem;
+    /* leave room for the copy button */
+}
+
+#copy {
+    position: absolute;
+    top: 0.7rem;
+    right: 0.8rem;
+    width: 2.1rem;
+    height: 2.1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1.5px solid transparent;
+    border-radius: 50%;
+    background-color: var(--paper-deep);
+    color: var(--bill-green);
+    font-size: 1.05rem;
+    line-height: 1;
+    cursor: pointer;
+    opacity: 0;
+    transition: background 0.2s ease, border-color 0.2s ease,
+        transform 0.15s ease, color 0.2s ease;
+    animation: settleDown 0.6s cubic-bezier(0.2, 0.7, 0.2, 1) 0.75s forwards;
+}
+
+#copy:hover {
+    border-color: var(--brass);
+    background: rgba(220, 178, 126, 0.15);
+    color: var(--bill-green-deep);
+    transform: translateY(-1px);
+}
+
+#copy:active {
+    transform: translateY(0) scale(0.94);
+}
+
+#toast {
+    position: fixed;
+    left: 50%;
+    bottom: 0.3rem;
+    transform: translate(-50%, 30px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6rem;
+    padding: 0.7rem 1.3rem;
+    color: var(--bill-green-deep);
+    border-radius: 8px;
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: 1rem;
+    font-weight: 1000;
+    letter-spacing: 0.1em;
+    text-align: center;
+    box-shadow: 0 14px 28px -14px var(--shadow);
+    opacity: 0;
+    pointer-events: none;
+    z-index: 1000;
+    transition: opacity 0.35s ease-in,
+        transform 0.35s ease-in;
+}
+
+#toast.show {
+    opacity: 1;
+    transform: translate(-50%, 0);
+    transition: opacity 0.6s cubic-bezier(0.16, 0.8, 0.3, 1),
+        transform 0.6s cubic-bezier(0.16, 0.8, 0.3, 1);
+}
+
 
 input:focus-visible,
 select:focus-visible,
@@ -369,6 +450,7 @@ button:focus-visible {
         opacity: 0;
         transform: translateY(14px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
@@ -379,12 +461,15 @@ button:focus-visible {
     0% {
         transform: scale(1);
     }
+
     35% {
         transform: scale(0.94) rotate(-1.2deg);
     }
+
     70% {
         transform: scale(1.02) rotate(0.4deg);
     }
+
     100% {
         transform: scale(1) rotate(0deg);
     }
