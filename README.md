@@ -8,6 +8,8 @@ A modern and responsive Currency Converter web application built with **HTML, CS
 - 🌍 Real-time currency conversion
 - 🔄 One-click currency swap
 - 🚩 Country flags for each currency
+- ⏳ Loading animation while fetching exchange rates
+- 📋 Copy converted value
 - 📱 Fully responsive design
 - 🎨 Clean and modern UI
 
